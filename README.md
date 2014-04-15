@@ -9,13 +9,13 @@ An PHP 5 library for easy openid authentication. Works only as a consumer. more�
 
 Features:
 
-    * Easy to use. (you can code a functional client in less than ten lines of code)
-    * Depends only on curl
-    * Supports both OpenID 1.1 and 2.0
-    * Supports Yadis discovery
-    * Supports only stateless/dumb protocol
-    * Works with PHP >= 5
-    * Generates no errors with error_reporting(E_ALL | E_STRICT) 
+* Easy to use. (you can code a functional client in less than ten lines of code)
+* Depends only on curl
+* Supports both OpenID 1.1 and 2.0
+* Supports Yadis discovery
+* Supports only stateless/dumb protocol
+* Works with PHP >= 5
+* Generates no errors with error_reporting(E_ALL | E_STRICT) 
 
 ##About extension
 * This extension is directory independent, you can use it any desired directory without rewritting `import()` instructions.
@@ -32,8 +32,7 @@ First you must install extension to your project:
 You can do it in 2 ways:
 
 **Way 1:** in your project config.php in the components section, add the following:
-~~~
-[php]
+~~~php
 'loid' => array(
                //alias to dir, where you unpacked extension
     'class' => 'application.extensions.lightopenid.loid',
@@ -41,8 +40,7 @@ You can do it in 2 ways:
 ~~~
 
 **Way 2:** in your controller code:
-~~~
-[php]
+~~~php
 Yii::app()->setComponents(array('loid'=>array('class'=>'application.extensions.lightopenid.loid')));
 ),
 ~~~
@@ -50,8 +48,7 @@ Yii::app()->setComponents(array('loid'=>array('class'=>'application.extensions.l
 ##Usage
 
 Simple usage:
-~~~
-[php]
+~~~php
 $loid = Yii::app()->loid->load();
 if (!empty($_GET['openid_mode'])) {
     if ($_GET['openid_mode'] == 'cancel') {
@@ -84,22 +81,19 @@ if (!empty($_GET['openid_mode'])) {
 You can set loid configuration by 2 ways:  
 
 **01.** After load configuration:
-~~~
-[php]
+~~~php
 $loid = Yii::app()->loid->load();
 $loid->identity = "http://my.openid.identifier"; //Setting identifier
 $loid->required = array('namePerson/friendly', 'contact/email'); //Try to get info from openid provider
 ~~~
 **02.** Onload configuration:
-~~~
-[php]
+~~~php
 $config = array('identity'=>'http://my.openid.identifier','required'=>array('namePerson/friendly', 'contact/email'));
 $loid = Yii::app()->loid->load($config);
 ~~~
 
 ##LightOpenid usage ReadMe:
-~~~
-[php]
+~~~php
 /**
  * This class provides a simple interface for OpenID (1.1 and 2.0) authentication.
  * Supports Yadis discovery.
@@ -150,8 +144,7 @@ $loid = Yii::app()->loid->load($config);
 ##i18n
 Here are i18n pairs to `Yii::t()` instructions:
 
-~~~
-[php]
+~~~php
 'No servers found!' => 'Не найден сервер авторизации. (No servers found!)',
 'Invalid request.'=> 'Неверный запрос. (Invalid request.)',
 'No identity supplied.'=>'Нет поддержки идентификатора. (No identity supplied.)',
